@@ -2,19 +2,15 @@ import os
 import json
 import redis
 import conf
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, render_template
 from datetime import datetime
 app = Flask(__name__)
 
 r = redis.Redis(host=conf.HOST, port=conf.REDIS_PORT)
 
-@app.route('/react-test/<room_name>', defaults={'path': ''})
-@app.route('/react-test/<room_name>/<path:path>')
-def react_chatroom(room_name, path):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+@app.route('/react-test/<room_name>')
+def react_chatroom(room_name):
+    return render_template("index.html", flask_token="Hello   world")
 
 @app.route('/<room_name>', methods=['GET'])
 def chatroom(room_name):
