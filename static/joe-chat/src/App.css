@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.app-container {
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    font-family: monospace;
+}
+
+.message-input {
+    border: 0;
+    outline-width: 0;
+    background-color: black;
+    color: white;
+    float: left;
+    caret-shape: block;
+    width: 100vw;
+}
+
+.incoming-message {
+    color: white;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.chatbox-container {
+    padding-left: 10px;
+}
+
+.input-container {
+    padding-left: 10px;
+}

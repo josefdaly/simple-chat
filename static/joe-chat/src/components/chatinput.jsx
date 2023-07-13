@@ -18,8 +18,10 @@ function ChatInput() {
     }
 
     return (
-        <div>
+        <div className='input-container'>
             <input type='text'
+                autoFocus
+                className='message-input'
                 value={message}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}

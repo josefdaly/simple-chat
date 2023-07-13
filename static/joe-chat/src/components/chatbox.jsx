@@ -21,11 +21,11 @@ function ChatBox() {
     }, [])
 
     return (
-      <div className="chatbox">
+      <div className="chatbox-container">
           {messages &&
               messages.map(message => {
                   return (
-                      <p>{message.ip_address}: {message.message}</p>
+                      <p className='incoming-message'>{message.ip_address}: {message.message}</p>
                   )
               })
           }
