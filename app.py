@@ -2,19 +2,15 @@ import os
 import json
 import redis
 import conf
-from flask import Flask, request, send_from_directory, render_template
+from flask import Flask, request, render_template
 from datetime import datetime
 app = Flask(__name__)
 
 r = redis.Redis(host=conf.HOST, port=conf.REDIS_PORT)
 
-@app.route('/react-test/<room_name>')
+@app.route('/<room_name>')
 def react_chatroom(room_name):
     return render_template("index.html", flask_token="Hello   world")
-
-@app.route('/<room_name>', methods=['GET'])
-def chatroom(room_name):
-    return send_from_directory('static', 'chat.html')
 
 @app.route('/<room_name>/messages', methods=['GET', 'POST'])
 def messages(room_name):
@@ -26,7 +22,7 @@ def messages(room_name):
     if request.method == 'POST':
         message = request.get_json()
         message['timestamp'] = datetime.now().isoformat()
-        message['ip-address'] = request.environ['REMOTE_ADDR']
+        message['ip_address'] = request.environ['REMOTE_ADDR']
         messages.append(message)
         r.mset({room_key: json.dumps(messages)})
 

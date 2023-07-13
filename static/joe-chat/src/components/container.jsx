@@ -1,11 +1,11 @@
-import ChatBox from './chatbox'
-import Footer from './footer'
+import ChatBox from './chatbox';
+import ChatInput from './chatinput';
 
 function Container() {
     return (
         <div className='app-container'>
           <ChatBox />
-          <Footer />
+          <ChatInput />
         </div>
     )
 }
