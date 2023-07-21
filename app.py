@@ -9,8 +9,10 @@ app = Flask(__name__)
 
 r = redis.Redis(host=conf.HOST, port=conf.REDIS_PORT)
 
-HELP_MESSAGE = """Commands
-    :usercount - displays the number of active users
+HELP_MESSAGE = """
+Commands
+    :usercount
+        displays the number of active users
 """
 
 @app.route('/<room_name>')
