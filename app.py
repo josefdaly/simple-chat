@@ -9,6 +9,10 @@ app = Flask(__name__)
 
 r = redis.Redis(host=conf.HOST, port=conf.REDIS_PORT)
 
+HELP_MESSAGE = """Commands
+    :usercount - displays the number of active users
+"""
+
 @app.route('/<room_name>')
 def react_chatroom(room_name):
     return render_template("index.html")
@@ -35,6 +39,13 @@ def messages(room_name):
                 'timestamp': datetime.now().isoformat(),
                 'ip_address': 'system',
                 'message': user_count,
+            }
+            messages.append(system_message)
+        elif message['message'] == ':help':
+            system_message = {
+                'timestamp': datetime.now().isoformat(),
+                'ip_address': 'system',
+                'message': HELP_MESSAGE,
             }
             messages.append(system_message)
         else:

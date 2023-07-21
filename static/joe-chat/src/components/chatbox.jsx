@@ -25,7 +25,7 @@ function ChatBox() {
           {messages &&
               messages.map(message => {
                   return (
-                      <p className='incoming-message'>{message.ip_address}: {message.message}</p>
+                      <p className='incoming-message'>{message.ip_address}:  <div className="message-content" dangerouslySetInnerHTML={{__html: message.message.replace(/(?:\r\n|\r|\n)/g, '<br>')}}></div></p>
                   )
               })
           }
