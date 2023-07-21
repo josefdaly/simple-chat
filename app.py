@@ -40,7 +40,7 @@ def messages(room_name):
             system_message = {
                 'timestamp': datetime.now().isoformat(),
                 'ip_address': 'system',
-                'message': user_count,
+                'message': 'user count - ' + str(user_count),
             }
             messages.append(system_message)
         elif message['message'] == ':help':
