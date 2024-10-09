@@ -16,7 +16,9 @@ This will navigate to the front end and inform it to make requests to the room n
 
 ### /<room_name>/messages - GET, POST
 This endpoint will either GET messages namespaced in redis under the room_name or POST new messages under the namespace.
+
 TODO: Add time filters so we're not fetching them all over and over again.
+
 #### Example Post
 ```
 const xhr = new XMLHttpRequest();
