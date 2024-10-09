@@ -5,6 +5,7 @@ Simple chat server. To start navigate to root directory and run the following co
 python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
+redis-server --port 6380
 python app.py
 ```
 After this, you can create a chatroom by navigating to localhost:5000/:whatever.
